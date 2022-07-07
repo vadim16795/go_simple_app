@@ -1,1 +1,1 @@
-# go_simple_app
+# simple app for tests
