@@ -14,7 +14,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build imagename + ":${GIT_REVISION:0:7}"
+          dockerImage = docker.build imagename + ":${GIT_COMMIT[0..7]}"
         }
       }
     }
