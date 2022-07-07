@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    imagename = "vadim16795/go_simple_app"
+    imagename = "go_simple_app"
     dockerImage = ''
   }
   agent any
@@ -14,7 +14,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build imagename
+          dockerImage = docker.build imagename + ${env.BUILD_ID}
         }
       }
     }
