@@ -11,12 +11,16 @@ pipeline {
  
       }
     }
-    stage('Building image') {
+    stage('Build docker image') {
       steps{
         script {
           dockerImage = docker.build imagename
         }
       }
     }
-  }
+  }    stage('Remove docker image') {
+      steps{
+        sh "docker rmi $imagename"
+      }
+    }
 }
