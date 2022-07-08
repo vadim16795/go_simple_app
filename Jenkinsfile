@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    imagename = "go_simple_app"
+    imagename = "go_simple_app" + ":${GIT_COMMIT[0..7]}"
     dockerImage = ''
   }
   agent any
@@ -14,7 +14,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build imagename + ":${GIT_COMMIT[0..7]}"
+          dockerImage = docker.build imagename
         }
       }
     }
