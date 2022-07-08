@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM golang:1.18-alpine as builder
+LABEL stage=builder
 WORKDIR /app
 COPY . .
 RUN go build -o main main.go

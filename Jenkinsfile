@@ -31,6 +31,7 @@ pipeline {
     stage('Remove image from local Docker') {
       steps{
         sh "docker rmi $imagename"
+        sh "docker image prune --filter label=stage=builder"
       }
     }
   }
