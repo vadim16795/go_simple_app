@@ -28,5 +28,10 @@ pipeline {
         }
       }
     }
+    stage('Remove image from local Docker') {
+      steps{
+        sh "docker rmi $imagename"
+      }
+    }
   }
 }
