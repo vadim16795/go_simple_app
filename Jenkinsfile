@@ -1,5 +1,6 @@
 pipeline {
   environment {
+    registryCredential='f11cc0be-2ed0-432f-b8e0-8d819a37fcf0'
     imagename = "go_simple_app" + ":${GIT_COMMIT[0..7]}"
     dockerImage = ''
   }
@@ -11,16 +12,20 @@ pipeline {
  
       }
     }
-    stage('Build docker image') {
+    stage('Build Docker image') {
       steps{
         script {
           dockerImage = docker.build imagename
         }
       }
     }
-    stage('Remove docker image') {
-    steps{
-        sh "docker rmi $imagename"
+    stage('Push image to Dockerhub') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ){
+            dockerImage.push()
+          }
+        }
       }
     }
   }
