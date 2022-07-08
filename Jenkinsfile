@@ -18,9 +18,10 @@ pipeline {
         }
       }
     }
-  }    stage('Remove docker image') {
-      steps{
+    stage('Remove docker image') {
+    steps{
         sh "docker rmi $imagename"
       }
     }
+  }
 }
