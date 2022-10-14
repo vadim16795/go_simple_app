@@ -49,20 +49,19 @@ pipeline {
         def SONARQUBE_PROJECT_KEY = "mysuperproject:puperproject"
 //        def SONARQUBE_PROJECT_NAME = "mysuperproject"
         def SONARQUBE_TOKEN = "sqp_5d2410fa11a519ae4f22df1d36fa292d005b8236"
+        def VERSION = "${env.GIT_COMMIT[0..6]}"
     }
     stages {
-        // stage('Cloning Github repo') {
-        //     steps {
-        //         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GITHUBKEY', url: 'git@github.com:vadim16795/go_simple_app.git']]])
-                
-        //     }
-        // }
         stage('printenv') {
             steps {
                 sh 'printenv'
-                
             }
         }
+        stage('show version') {
+            steps {
+                println(VERSION)
+            }
+        }        
         stage('SonarQube Analysis') {
             steps {
                 script {
