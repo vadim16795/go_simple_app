@@ -70,8 +70,8 @@ pipeline {
                             " -Dsonar.sources=." +
 //                            " -Dsonar.login=sqp_5d2410fa11a519ae4f22df1d36fa292d005b8236"
                             " -Dsonar.login=${SONARQUBE_TOKEN}" +
-                            " -Dsonar.projectKey=${SONARQUBE_PROJECT_KEY}"
-//                            " -Dsonar.projectVersion=${VERSION}"
+                            " -Dsonar.projectKey=${SONARQUBE_PROJECT_KEY}" +
+                            " -Dsonar.projectVersion=${VERSION}"
 //                            " -Dsonar.projectName=${SONARQUBE_PROJECT_NAME}" +
 //                            " -Dsonar.sources=."
                 }
