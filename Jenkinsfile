@@ -66,7 +66,7 @@ pipeline {
             steps {
                 script {
                     sh "sonar-scanner -Dsonar.host.url=${SONARQUBE_URL}" +
-                            " -Dsonar.projectKey=mysuperproject:puperproject" +
+//                            " -Dsonar.projectKey=mysuperproject:puperproject" +
                             " -Dsonar.sources=." +
 //                            " -Dsonar.login=sqp_5d2410fa11a519ae4f22df1d36fa292d005b8236"
                             " -Dsonar.login=${SONARQUBE_TOKEN}" +
