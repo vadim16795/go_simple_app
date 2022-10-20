@@ -65,7 +65,9 @@ pipeline {
         stage('show baseCommit') {
             steps {
                 script {
-                    baseCommit = sh(script: "git rev-parse "+ env.GIT_BRANCH, returnStdout: true).trim()
+                    fullCommit = sh(script: "git rev-parse "+ env.GIT_BRANCH, returnStdout: true).trim()
+                    println("This is your base commit :" + fullCommit)
+                    def baseCommit = "${fullCommit[0..6]}"
                     println("This is your base commit :" + baseCommit)
                 }
             }
