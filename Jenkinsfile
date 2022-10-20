@@ -66,9 +66,11 @@ pipeline {
             steps {
                 script {
                     fullCommit = sh(script: "git rev-parse "+ env.GIT_BRANCH, returnStdout: true).trim()
-                    println("This is your base commit :" + fullCommit)
+                    println("This is your fullCommit :" + fullCommit)
+                    println("fullCommit class: " + fullCommit.getClass())
                     def baseCommit = "${fullCommit[0..6]}"
-                    println("This is your base commit :" + baseCommit)
+                    println("This is your baseCommit :" + baseCommit)
+                    println("baseCommit class: " + baseCommit.getClass())
                 }
             }
         }        
