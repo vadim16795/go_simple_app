@@ -48,7 +48,7 @@ pipeline {
         def SONARQUBE_URL = "http://192.168.1.138:9000"
         def SONARQUBE_PROJECT_KEY = "mysuperproject:puperproject"
 //        def SONARQUBE_PROJECT_NAME = "mysuperproject"
-        def SONARQUBE_TOKEN = "sqp_5d2410fa11a519ae4f22df1d36fa292d005b8236"
+        def SONARQUBE_TOKEN = "sqa_d0715c393dd4793bcce496c7366900181f039319"
         def VERSION = "${env.GIT_COMMIT[0..6]}"
     }
     stages {
@@ -74,7 +74,7 @@ pipeline {
             steps {
                 script {
                     sh "sonar-scanner -Dsonar.host.url=${SONARQUBE_URL}" +
-                            " -Dsonar.projectKey=mysuperproject:puperproject" +
+//                            " -Dsonar.projectKey=mysuperproject:puperproject" +
                             " -Dsonar.sources=." +
 //                            " -Dsonar.login=sqp_5d2410fa11a519ae4f22df1d36fa292d005b8236"
                             " -Dsonar.login=${SONARQUBE_TOKEN}" +
