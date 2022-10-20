@@ -61,6 +61,14 @@ pipeline {
             steps {
                 println(VERSION)
             }
+        }
+        stage('show baseCommit') {
+            steps {
+                script {
+                    baseCommit = sh(script: "git rev-parse origin/"+ env.BRANCH_NAME, returnStdout: true).trim()
+                    println("This is your base commit :" + baseCommit)
+                }
+            }
         }        
         stage('SonarQube Analysis') {
             steps {
